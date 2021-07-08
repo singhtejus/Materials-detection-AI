@@ -1,4 +1,4 @@
-﻿# Project Name/Title Goes Here
+﻿# Materials detection model
 For my project at BSE, I wanted to create an AI model which can identify various materials from an input image. While there are already models that can detect objects, I have not seen any that can detect the specific materials used on the object. This has applications from better self-driving cars software, to helping the blind "see," in more vivid detail.
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
