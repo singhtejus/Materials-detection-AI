@@ -5,7 +5,7 @@ For my project at BSE, I wanted to create an AI model which can identify various
 |:--:|:--:|:--:|:--:|
 | Tejus Singh | Evergreen Valley High School | "    " | Incoming Senior
 
-![Headstone Image](https://cdn.discordapp.com/attachments/856058763894063114/863102813941006336/IMG_7215.JPG)
+![Headstone Image](https://cdn.discordapp.com/attachments/856058763894063114/863103776180142100/IMG_7216.JPG)
 This is the raspberry pi that the final AI model will run on.
 # Final Milestone
 My final milestone is to implement my model to an Android app, so that a user can detect materials with the click of one button.   
