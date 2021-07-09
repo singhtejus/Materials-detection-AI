@@ -49,6 +49,27 @@ model.compile(loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
 ```
 This is the model that will be training on the dataset. It takes in an input image of 384px x 512px, and finds various patterns using 8 convolutional layers.
+After training for 70 epochs, the model had an accuracy of 90%. 
+
+```
+from PIL import Image
+
+width = 384
+height = 512
+img = Image.open('/content/IMG_7192.jpg')
+img = img.resize((width, height), Image.ANTIALIAS)
+img.save('resized_image.jpg')
+img = mpimg.imread(path)
+
+x = keras.preprocessing.image.img_to_array(img)
+x = np.expand_dims(x, axis=0)
+
+images = np.vstack([x])
+classes = model.predict(images)
+pred = labels[np.argmax(classes)]
+```
+After training, this code can be used to use our model on images. It takes in the user defined image, a jpg file, and resizes it to the input size of the model. Then, the pixels of the resized image are converted into an array which can be read by the model. This is inputted into the model which outputs a predicted label.
+
 # Final Milestone
 My final milestone is to implement my model to an Android app, so that a user can detect materials with the click of one button.   
 
