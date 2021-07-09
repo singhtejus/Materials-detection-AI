@@ -1,5 +1,5 @@
 ﻿# Materials detection model
-For my project at BSE, I wanted to create an AI model which can identify various materials from an input image. While there are already models that can detect objects, I have not seen any that can detect the specific materials used on the object. This has applications from better self-driving cars software, to helping the blind "see," in more vivid detail.
+For my project at BSE, I wanted to create an AI model which can identify various materials from an input image. While there are already models that can detect objects, I have not seen any that can detect the specific materials used on the object. The model can currently predict the following materials: paper, cardboard, glass, metal, wood, plastic, and skin. This has applications from better self-driving cars software, to helping the blind "see," in more vivid detail.
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
@@ -68,7 +68,7 @@ images = np.vstack([x])
 classes = model.predict(images)
 pred = labels[np.argmax(classes)]
 ```
-After training, this code can be used to use our model on images. It takes in the user defined image, a jpg file, and resizes it to the input size of the model. Then, the pixels of the resized image are converted into an array which can be read by the model. This is inputted into the model which outputs a predicted label.
+After training, this code can be used to use our model on images. It takes in the user defined image, a jpg file, and resizes it to the input size of the model. Then, the pixels of the resized image are converted into an array which can be read by the model. This is fed into the model which outputs a predicted label.
 
 # Final Milestone
 My final milestone is to implement my model to an Android app, so that a user can detect materials with the click of one button.   
