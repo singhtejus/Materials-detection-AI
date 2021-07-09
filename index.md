@@ -7,6 +7,48 @@ For my project at BSE, I wanted to create an AI model which can identify various
 
 ![Headstone Image](https://cdn.discordapp.com/attachments/856058763894063114/863103776180142100/IMG_7216.JPG)
 This is the raspberry pi that the final AI model will run on.
+
+```
+model = tf.keras.Sequential([
+  tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(384, 512, 3)),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.Conv2D(32, (3, 3), activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.MaxPooling2D(2, 2),
+  tf.keras.layers.Dropout(0.2),
+    
+  tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.MaxPooling2D(2, 2),
+  tf.keras.layers.Dropout(0.2),
+    
+  tf.keras.layers.Conv2D(128, (3, 3), activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.Conv2D(128, (3, 3), activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.MaxPooling2D(2, 2),
+  tf.keras.layers.Dropout(0.2),
+
+  tf.keras.layers.Conv2D(256, (3, 3), activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.Conv2D(256, (3, 3), activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.MaxPooling2D(2, 2),
+  tf.keras.layers.Dropout(0.2),
+    
+  tf.keras.layers.Flatten(),
+  tf.keras.layers.Dense(512, activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.Dropout(0.4),
+  tf.keras.layers.Dense(6, activation='softmax')
+])
+model.compile(loss='sparse_categorical_crossentropy', 
+              optimizer=keras.optimizers.Adam(lr = 0.0001), 
+              metrics=['accuracy'])
+```
+This is the model that will be training on the dataset. It takes in an input image of 384px x 512px, and finds various patterns using 8 convolutional layers.
 # Final Milestone
 My final milestone is to implement my model to an Android app, so that a user can detect materials with the click of one button.   
 
