@@ -48,8 +48,9 @@ model.compile(loss='sparse_categorical_crossentropy',
               optimizer=keras.optimizers.Adam(lr = 0.0001), 
               metrics=['accuracy'])
 ```
-This is the model that will be training on the dataset. It takes in an input image of 384px x 512px, and finds various patterns using 8 convolutional layers.
-After training for 70 epochs, the model had an accuracy of 90%. 
+After experimenting with my own model, and many pretrained image classification models, this is the one that produced the best accuracy after training on the dataset. It takes in an input image of 224px x 224px, and finds various patterns in the texture, opacity, color, etc, of the object in the image. 
+After training for 70 epochs, the model had a validation accuracy of 80.1% and a validation loss of 0.5.
+The validation loss is not ideal, but it is the best I could do with a limited dataset.
 
 ```
 from PIL import Image
