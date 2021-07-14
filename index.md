@@ -5,20 +5,25 @@ For my project at BSE, I wanted to create an AI model which can identify various
 |:--:|:--:|:--:|:--:|
 | Tejus Singh | Evergreen Valley High School | "    " | Incoming Senior
 
-# First Milestone
+### First Milestone
 Reaching a working classifier was a task that appeared easier than it actually happened to be. To have a trained model, I need a good dataset, and a model that would train on the data. 
 
 I happened to stumble upon a garbage classification dataset, which although small, contained the images I needed to start testing. 
 With my dataset found, I turned my attention to the model. I first attempted to use an untrained tensorflow model with 6 convolutional 2D layers, but after training and testing, it became very clear that I would be wasting time creating my own model. So I turned to pretrained classification models, and the best one happened to be InceptionV3. Yet, while my model would train, and reach a validation accuracy of 77%, my validation loss would not decrease, but rather stayed the same throughout training. When testing, the predictions were strangely off, and would put random probability on my class labels.
-![Headstone Image](https://cdn.discordapp.com/attachments/861646157956382750/863124447980290058/unknown.png)
-![Headstone Image](https://cdn.discordapp.com/attachments/861646157956382750/863124684966199336/unknown.png)
+
+
+
+<img src = "https://cdn.discordapp.com/attachments/861646157956382750/863124447980290058/unknown.png" width = "300">
+<img src = "https://cdn.discordapp.com/attachments/861646157956382750/863124684966199336/unknown.png" width = "300">
 
 Clearly, the model hasn't trained properly despite the numbers looking good
 
+
 I then tried a clusttering approach, in which the model uses K Nearest-neighbors (KNN) to group different attributes of an image. This is different from the other models which use image recognition. However, this seemed to create more errors and problems, so I switched back to using a CNN model, but this time decided to use VGG16. In addition, I realized my dataset was extremely small for the task I was trying to achieve. I didn't have the time to manually take photos of objects and classify them. [Thanks to Jason Inirio's google images to dataset tool](https://github.com/jasoninirio/BSE_Toolbox/tree/main/dataset_maker), I was able to quickly add hundreds of images to each label in my dataset. 
 
+![Google Images to Dataset](https://cdn.discordapp.com/attachments/856058763894063114/864907433842049024/IMG_7398.mov)
 
-![Headstone Image](https://cdn.discordapp.com/attachments/856058763894063114/863103776180142100/IMG_7216.JPG)
+https://cdn.discordapp.com/attachments/856058763894063114/863103776180142100/IMG_7216.JPG
 This is the raspberry pi that the final AI model will run on.
 
 ```
