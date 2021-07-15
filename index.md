@@ -71,23 +71,24 @@ The validation loss is not ideal, but it is the best I could do with a limited d
 
 ```
 from PIL import Image
-
-width = 384
-height = 512
+width = 224
+height = 224
 img = Image.open('/content/IMG_7192.jpg')
 img = img.resize((width, height), Image.ANTIALIAS)
 img.save('resized_image.jpg')
 img = mpimg.imread(path)
 
 x = keras.preprocessing.image.img_to_array(img)
+x = normalize(x)
 x = np.expand_dims(x, axis=0)
 
 images = np.vstack([x])
 classes = model.predict(images)
 pred = labels[np.argmax(classes)]
 ```
-After training, this code can be used to use our model on images. It takes in the user defined image, a jpg file, and resizes it to the input size of the model. Then, the pixels of the resized image are converted into an array which can be read by the model. This is fed into the model which outputs a predicted label.
+After training, this code can be used to use our model on images. It takes in the user defined image, a jpg file, and resizes it to the input size of the model. Then, the pixels of the resized image are converted into an array which can be read by the model. The image is then normalized so that all the features are predicted in a range from 0-1 This is fed into the model which outputs a predicted label.
 
+<img src = "https://cdn.discordapp.com/attachments/856058763894063114/865269216885473301/unknown.png" width = "300">
 
 [!Milestone One Video](https://youtu.be/UEGhcrTHicw)
 
