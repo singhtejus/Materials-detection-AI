@@ -21,7 +21,6 @@ Clearly, the model hasn't trained properly despite the numbers looking good
 
 I then tried a clusttering approach, in which the model uses K Nearest-neighbors (KNN) to group different attributes of an image. This is different from the other models which use image recognition. However, this seemed to create more errors and problems, so I switched back to using a CNN model, but this time decided to use VGG16. In addition, I realized my dataset was extremely small for the task I was trying to achieve. I didn't have the time to manually take photos of objects and classify them. [Thanks to Jason Inirio's google images to dataset tool](https://github.com/jasoninirio/BSE_Toolbox/tree/main/dataset_maker), I was able to quickly add hundreds of images to each label in my dataset. 
 
-![Google Images to Dataset](https://cdn.discordapp.com/attachments/856058763894063114/864907433842049024/IMG_7398.mov)
 
 https://cdn.discordapp.com/attachments/856058763894063114/863103776180142100/IMG_7216.JPG
 This is the raspberry pi that the final AI model will run on.
