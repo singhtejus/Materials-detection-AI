@@ -88,6 +88,8 @@ pred = labels[np.argmax(classes)]
 ```
 After training, this code can be used to use our model on images. It takes in the user defined image, a jpg file, and resizes it to the input size of the model. Then, the pixels of the resized image are converted into an array which can be read by the model. This is fed into the model which outputs a predicted label.
 
+https://youtu.be/UEGhcrTHicw
+
 # Final Milestone
 My final milestone is to implement my model to an Android app, so that a user can detect materials with the click of one button.   
 
