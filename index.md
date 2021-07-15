@@ -88,7 +88,7 @@ pred = labels[np.argmax(classes)]
 ```
 After training, this code can be used to use our model on images. It takes in the user defined image, a jpg file, and resizes it to the input size of the model. Then, the pixels of the resized image are converted into an array which can be read by the model. The image is then normalized so that all the features are predicted in a range from 0-1 This is fed into the model which outputs a predicted label.
 
-<img src = "https://cdn.discordapp.com/attachments/856058763894063114/865269216885473301/unknown.png" width = "300">
+<img src = "https://cdn.discordapp.com/attachments/856058763894063114/865269216885473301/unknown.png" width = "600">
 
 [!Milestone One Video](https://youtu.be/UEGhcrTHicw)
 
