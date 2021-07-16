@@ -23,7 +23,7 @@ I then tried a clusttering approach, in which the model uses K Nearest-neighbors
 
 <img src = "https://cdn.discordapp.com/attachments/856058763894063114/865272247030775839/unknown.png" width = "600">
 
-```
+```python
 model = tf.keras.Sequential([
   tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(384, 512, 3)),
   tf.keras.layers.BatchNormalization(),
@@ -67,7 +67,7 @@ After experimenting with my own model, and many pretrained image classification 
 After training for 70 epochs, the model had a validation accuracy of 80.1% and a validation loss of 0.5.
 The validation loss is not ideal, but it is the best I could do with a limited dataset.
 
-```
+```python
 from PIL import Image
 width = 224
 height = 224
