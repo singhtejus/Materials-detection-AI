@@ -23,9 +23,6 @@ I then tried a clusttering approach, in which the model uses K Nearest-neighbors
 
 <img src = "https://cdn.discordapp.com/attachments/856058763894063114/865272247030775839/unknown.png" width = "600">
 
-<img src = "https://cdn.discordapp.com/attachments/856058763894063114/863103776180142100/IMG_7216.JPG">
-This is the raspberry pi that the final AI model will run on.
-
 ```
 model = tf.keras.Sequential([
   tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(384, 512, 3)),
@@ -93,7 +90,10 @@ After training, this code can be used to use our model on images. It takes in th
 
 It finally works (well, some of the time)!
 
-[!Milestone One Video](https://youtu.be/UEGhcrTHicw)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UEGhcrTHicw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<img src = "https://cdn.discordapp.com/attachments/856058763894063114/863103776180142100/IMG_7216.JPG">
+This is the raspberry pi that the final AI model will run on.
 
 # Final Milestone
 My final milestone is to implement my model to an Android app, so that a user can detect materials with the click of one button.   
@@ -101,7 +101,11 @@ My final milestone is to implement my model to an Android app, so that a user ca
 <--!final milesstone video here-->
 
 # Second Milestone
-My final milestone is the increased reliability and accuracy of my robot. I ameliorated the sagging and fixed the reliability of the finger. As discussed in my second milestone, the arm sags because of weight. I put in a block of wood at the base to hold up the upper arm; this has reverberating positive effects throughout the arm. I also realized that the forearm was getting disconnected from the elbow servo’s horn because of the weight stress on the joint. Now, I make sure to constantly tighten the screws at that joint.
+
+<img src = "https://cdn.discordapp.com/attachments/856058763894063114/863103776180142100/IMG_7216.JPG">
+This is the raspberry pi that the final AI model will run on.
+
+My second milestone was to run my model on a raspberry pi 3. While previous rpi's have been very underpowered, the newer models such as the 3 and 4 have gained significant performance gains. So while training still cannot happen on the pi itself (because of the lack of an egpu), the final model CAN run on it, and predictions can be made entirely on device rather than on google colab or a separate device. 
 
 <--!2nd milesstone video here-->
 # Final Milestone
