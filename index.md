@@ -31,8 +31,7 @@ from sklearn.ensemble import RandomForestClassifier
 RF_model = RandomForestClassifier(n_estimators = 50, random_state = 42)
 ```
 
-After experimenting with my own model, and many pretrained image classification models, I realized regular computer vision is not the ideal method for material classification. Instead, I decided to combine traditional machine algorithm with deep learning. My final model is a sort of pipeline. The first part of this conveyer line style model is a VGG16 model that will not be trained. Instead, it will detect various features from the image, and as It takes in an input image of 224px x 224px, and finds various patterns in the texture, opacity, color, etc, of the object in the image. 
-After training for 70 epochs, the model had a validation accuracy of 80.1% and a validation loss of 0.5.
+After experimenting with my own model, and many pretrained image classification models, I decided to use VGG16 as an image classification model. It is trained on ImageNet, and I would utilize the massive dataset and the months put into its training, by only training the weights. I would not train the actual convolutional layers because my dataset is not large enough to train the model accurately. This model takes in an input image of 224px x 224px, and compares parts of the image to images of materials it had already trained on. After training for 70 epochs, the model had a validation accuracy of 80.1% and a validation loss of 0.5.
 The validation loss is not ideal, but it is the best I could do with a limited dataset.
 
 ```python
@@ -60,14 +59,6 @@ It finally works (well, some of the time)!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UEGhcrTHicw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<img src = "https://cdn.discordapp.com/attachments/856058763894063114/863103776180142100/IMG_7216.JPG">
-This is the raspberry pi that the final AI model will run on.
-
-# Final Milestone
-My final milestone is to implement my model to an Android app, so that a user can detect materials with the click of one button.   
-
-<--!final milesstone video here-->
-
 # Second Milestone
 
 <img src = "https://cdn.discordapp.com/attachments/856058763894063114/863103776180142100/IMG_7216.JPG">
@@ -86,10 +77,10 @@ RF_model = RandomForestClassifier(n_estimators = 50, random_state = 42)
 
 I realized regular computer vision is not the ideal method for material classification. Instead, I decided to combine traditional machine algorithm with deep learning. My final model is a sort of pipeline. The first part of this conveyer line style model is a VGG16 model that will not be trained. Instead, it will detect various features from the image, and pass them on to a RandomForest Classifier which determines whether the features detected are ones that match with cardboard, glass, or plastic, etc. 
 
-<--!2nd milesstone video here-->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zaNmfd-J6KU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 # Final Milestone
   
-
-My first milestone was setting up my raspberry pi and preparing it so that it would be able to run the model after it had been trained. Of greater accomplishment was the creation of my dataset, which was done by combining several datasets together. I replaced their labels and prepared them to be used for training. Training could not be done on the actual pi because of its limited processing power. Therefore, I used Google Colab which allowed me to quickly train my model on a powerful gpu.The accuracy of my first prototype model was around 94%. 
-
-<--!first milesstone video here-->
+ My final milestone was to get my code running on a web app. The code is hosted on the Raspberry Pi, but now has an interface and website, which allows anyone on the web to input an image and get an output prediction
+ 
+<img src = "https://cdn.discordapp.com/attachments/856058763894063114/867834822596886538/unknown.png">
