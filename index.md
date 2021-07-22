@@ -23,47 +23,15 @@ I then tried a clusttering approach, in which the model uses K Nearest-neighbors
 
 <img src = "https://cdn.discordapp.com/attachments/856058763894063114/865272247030775839/unknown.png" width = "600">
 
-```python
-model = tf.keras.Sequential([
-  tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(384, 512, 3)),
-  tf.keras.layers.BatchNormalization(),
-  tf.keras.layers.Conv2D(32, (3, 3), activation='relu'),
-  tf.keras.layers.BatchNormalization(),
-  tf.keras.layers.MaxPooling2D(2, 2),
-  tf.keras.layers.Dropout(0.2),
-    
-  tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
-  tf.keras.layers.BatchNormalization(),
-  tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
-  tf.keras.layers.BatchNormalization(),
-  tf.keras.layers.MaxPooling2D(2, 2),
-  tf.keras.layers.Dropout(0.2),
-    
-  tf.keras.layers.Conv2D(128, (3, 3), activation='relu'),
-  tf.keras.layers.BatchNormalization(),
-  tf.keras.layers.Conv2D(128, (3, 3), activation='relu'),
-  tf.keras.layers.BatchNormalization(),
-  tf.keras.layers.MaxPooling2D(2, 2),
-  tf.keras.layers.Dropout(0.2),
 
-  tf.keras.layers.Conv2D(256, (3, 3), activation='relu'),
-  tf.keras.layers.BatchNormalization(),
-  tf.keras.layers.Conv2D(256, (3, 3), activation='relu'),
-  tf.keras.layers.BatchNormalization(),
-  tf.keras.layers.MaxPooling2D(2, 2),
-  tf.keras.layers.Dropout(0.2),
-    
-  tf.keras.layers.Flatten(),
-  tf.keras.layers.Dense(512, activation='relu'),
-  tf.keras.layers.BatchNormalization(),
-  tf.keras.layers.Dropout(0.4),
-  tf.keras.layers.Dense(6, activation='softmax')
-])
-model.compile(loss='sparse_categorical_crossentropy', 
-              optimizer=keras.optimizers.Adam(lr = 0.0001), 
-              metrics=['accuracy'])
+<img src = "https://cdn.discordapp.com/attachments/856058763894063114/867809699230384159/unknown.png" width = "600">
+
 ```
-After experimenting with my own model, and many pretrained image classification models, this is the one that produced the best accuracy after training on the dataset. It takes in an input image of 224px x 224px, and finds various patterns in the texture, opacity, color, etc, of the object in the image. 
+from sklearn.ensemble import RandomForestClassifier
+RF_model = RandomForestClassifier(n_estimators = 50, random_state = 42)
+```
+
+After experimenting with my own model, and many pretrained image classification models, I realized regular computer vision is not the ideal method for material classification. Instead, I decided to combine traditional machine algorithm with deep learning. My final model is a sort of pipeline. The first part of this conveyer line style model is a VGG16 model that will not be trained. Instead, it will detect various features from the image, and as It takes in an input image of 224px x 224px, and finds various patterns in the texture, opacity, color, etc, of the object in the image. 
 After training for 70 epochs, the model had a validation accuracy of 80.1% and a validation loss of 0.5.
 The validation loss is not ideal, but it is the best I could do with a limited dataset.
 
@@ -106,6 +74,17 @@ My final milestone is to implement my model to an Android app, so that a user ca
 This is the raspberry pi that the final AI model will run on.
 
 My second milestone was to run my model on a raspberry pi 3. While previous rpi's have been very underpowered, the newer models such as the 3 and 4 have gained significant performance gains. So while training still cannot happen on the pi itself (because of the lack of an egpu), the final model CAN run on it, and predictions can be made entirely on device rather than on google colab or a separate device. 
+
+In addition, I once again rebuilt my model. I realized that while it worked well on the test images from my dataset, those images might have been very similar to the training dataset, and had only been classified accurately due to overfitting. I found this out when trying to classify photos I took of hairbrushes and plastic cups and the model making weird predictions.
+
+<img src = "https://cdn.discordapp.com/attachments/856058763894063114/867809699230384159/unknown.png" width = "600">
+
+```
+from sklearn.ensemble import RandomForestClassifier
+RF_model = RandomForestClassifier(n_estimators = 50, random_state = 42)
+```
+
+I realized regular computer vision is not the ideal method for material classification. Instead, I decided to combine traditional machine algorithm with deep learning. My final model is a sort of pipeline. The first part of this conveyer line style model is a VGG16 model that will not be trained. Instead, it will detect various features from the image, and pass them on to a RandomForest Classifier which determines whether the features detected are ones that match with cardboard, glass, or plastic, etc. 
 
 <--!2nd milesstone video here-->
 # Final Milestone
