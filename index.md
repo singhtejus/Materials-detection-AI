@@ -23,7 +23,7 @@ I then tried a clusttering approach, in which the model uses K Nearest-neighbors
 
 <img src = "https://cdn.discordapp.com/attachments/856058763894063114/865272247030775839/unknown.png" width = "600">
 
-```
+```python
 model = tf.keras.Sequential([
   tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(384, 512, 3)),
   tf.keras.layers.BatchNormalization(),
@@ -78,7 +78,7 @@ The validation loss is not ideal, but it is the best I could do with a limited d
 from PIL import Image
 width = 224
 height = 224
-img = Image.open('/content/IMG_7192.jpg')
+img = Image.open('/content/image.jpg')
 img = img.resize((width, height), Image.ANTIALIAS)
 img.save('resized_image.jpg')
 img = mpimg.imread(path)
@@ -110,7 +110,7 @@ In addition, I once again rebuilt my model. I realized that while it worked well
 
 <img src = "https://cdn.discordapp.com/attachments/856058763894063114/867809699230384159/unknown.png" width = "600">
 
-```
+```python
 from sklearn.ensemble import RandomForestClassifier
 RF_model = RandomForestClassifier(n_estimators = 50, random_state = 42)
 ```
@@ -125,6 +125,38 @@ I realized regular computer vision is not the ideal method for material classifi
  
 <img src = "https://cdn.discordapp.com/attachments/856058763894063114/867834822596886538/unknown.png">
 
+There are 2 blocks to this running website: the server and the client. 
+
+```node
+var express = require("express");
+var app = express();
+
+app.listen(3000, function () {
+  console.log("server running on port 3000");
+});
+```
+My server runs locally on port 3000, and utilizes Node JS and Express to create my server.
+
+```node
+function callD_runpyscript(req, res) {
+
+  var spawn = require("child_process").spawn; 
+  var ls = spawn("python", ["./pyscript.py"]);
+
+  ls.stdout.on('data', (data) => {
+    console.log(`stdout: ${data}`);
+    response = data.toString();
+  //res.send(response);
+  });
+  return (res.redirect("/"));
+};
+```
+Using child a process, I was able to run my python script from my Node JS server. This script contains my recognition program. it takes an image as input and outputs the predicted label. 
+
+The client side of the code is pretty basic html code. This is just to build the visual interface such as the image selector, and the window that displays the image with its  label. 
+
 # Reflections
 
 Being my second AI project, I learned a lot about creating and using AI models to solve custom problems. Whenever I solved on problem, a host of new problems presented themselves. Through this process of tedious debugging and problem solving I learned that while figuring problems out can be fun, it is also quite mentally draining. But as long as I didn't burn myself out, the process of engineering my way out of a problem was very rewarding. 
+
+# Demo Night Presentation
