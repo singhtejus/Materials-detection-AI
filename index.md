@@ -101,7 +101,7 @@ It finally works (well, some of the time)!
 
 # Second Milestone
 
-<img src = "https://cdn.discordapp.com/attachments/856058763894063114/863103776180142100/IMG_7216.JPG">
+<img src = "https://cdn.discordapp.com/attachments/856058763894063114/863103776180142100/IMG_7216.JPG" width = "800">
 This is the raspberry pi that the final AI model will run on.
 
 My second milestone was to run my model on a raspberry pi 3. While previous rpi's have been very underpowered, the newer models such as the 3 and 4 have gained significant performance gains. So while training still cannot happen on the pi itself (because of the lack of an egpu), the final model CAN run on it, and predictions can be made entirely on device rather than on google colab or a separate device. 
@@ -121,7 +121,7 @@ I realized regular computer vision is not the ideal method for material classifi
 
 # Final Milestone
   
- My final milestone was to get my code running on a web app. The code still runs on the Raspberry Pi, but now has a simple interface in the form of a web appp, which allows anyone on the web to input an image and get an output prediction.
+ My final milestone was to get my code running on a web app. The code still runs on the Raspberry Pi, but now has a simple interface in the form of a website, which allows anyone on the web to input an image and get an output prediction.
  
 <img src = "https://cdn.discordapp.com/attachments/856058763894063114/867834822596886538/unknown.png">
 
