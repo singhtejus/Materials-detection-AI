@@ -23,13 +23,53 @@ I then tried a clusttering approach, in which the model uses K Nearest-neighbors
 
 <img src = "https://cdn.discordapp.com/attachments/856058763894063114/865272247030775839/unknown.png" width = "600">
 
-
-<img src = "https://cdn.discordapp.com/attachments/856058763894063114/867809699230384159/unknown.png" width = "600">
-
 ```
-from sklearn.ensemble import RandomForestClassifier
-RF_model = RandomForestClassifier(n_estimators = 50, random_state = 42)
+model = tf.keras.Sequential([
+  tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(384, 512, 3)),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.Conv2D(32, (3, 3), activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.MaxPooling2D(2, 2),
+  tf.keras.layers.Dropout(0.2),
+    
+  tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.MaxPooling2D(2, 2),
+  tf.keras.layers.Dropout(0.2),
+    
+  tf.keras.layers.Conv2D(128, (3, 3), activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.Conv2D(128, (3, 3), activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.MaxPooling2D(2, 2),
+  tf.keras.layers.Dropout(0.2),
+
+  tf.keras.layers.Conv2D(256, (3, 3), activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.Conv2D(256, (3, 3), activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.MaxPooling2D(2, 2),
+  tf.keras.layers.Dropout(0.2),
+    
+  tf.keras.layers.Flatten(),
+  tf.keras.layers.Dense(512, activation='relu'),
+  tf.keras.layers.BatchNormalization(),
+  tf.keras.layers.Dropout(0.4),
+  tf.keras.layers.Dense(6, activation='softmax')
+])
+model.compile(loss='sparse_categorical_crossentropy', 
+              optimizer=keras.optimizers.Adam(lr = 0.0001), 
+              metrics=['accuracy'])
+model.summary()
 ```
+
+This was my original model
+
+<img src = "https://cdn.discordapp.com/attachments/856058763894063114/868169390317781022/unknown.png" width = "600">
+
+While there's nothing inherently wrong with my own model or the various pretrained models I used, they don't work very well with small datasets because there simply isn't enough data to train 74 million parameters. Yet, these models didn't work accurately if I only trained the final layers and weights and left the core parameters untrained.
 
 After experimenting with my own model, and many pretrained image classification models, I decided to use VGG16 as an image classification model. It is trained on ImageNet, and I would utilize the massive dataset and the months put into its training, by only training the weights. I would not train the actual convolutional layers because my dataset is not large enough to train the model accurately. This model takes in an input image of 224px x 224px, and compares parts of the image to images of materials it had already trained on. After training for 70 epochs, the model had a validation accuracy of 80.1% and a validation loss of 0.5.
 The validation loss is not ideal, but it is the best I could do with a limited dataset.
