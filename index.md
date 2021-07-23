@@ -127,7 +127,7 @@ I realized regular computer vision is not the ideal method for material classifi
 
 There are 2 blocks to this running website: the server and the client. 
 
-```node
+```javascript
 var express = require("express");
 var app = express();
 
@@ -137,7 +137,7 @@ app.listen(3000, function () {
 ```
 My server runs locally on port 3000, and utilizes Node JS and Express to create my server.
 
-```node
+```javascript
 function callD_runpyscript(req, res) {
 
   var spawn = require("child_process").spawn; 
