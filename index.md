@@ -160,3 +160,4 @@ The client side of the code is pretty basic html code. This is just to build the
 Being my second AI project, I learned a lot about creating and using AI models to solve custom problems. Whenever I solved on problem, a host of new problems presented themselves. Through this process of tedious debugging and problem solving I learned that while figuring problems out can be fun, it is also quite mentally draining. But as long as I didn't burn myself out, the process of engineering my way out of a problem was very rewarding. 
 
 # Demo Night Presentation
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LhsMroaXTfQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
