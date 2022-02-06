@@ -97,7 +97,6 @@ After training, this code can be used to use our model on images. It takes in th
 
 It finally works (well, some of the time)!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UEGhcrTHicw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # Second Milestone
 
@@ -117,7 +116,6 @@ RF_model = RandomForestClassifier(n_estimators = 50, random_state = 42)
 
 I realized regular computer vision is not the ideal method for material classification. Instead, I decided to combine traditional machine algorithm with deep learning. My final model is a sort of pipeline. The first part of this conveyer line style model is a VGG16 model that will not be trained. Instead, it will detect various features from the image, and pass them on to a RandomForest Classifier which determines whether the features detected are ones that match with cardboard, glass, or plastic, etc. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zaNmfd-J6KU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # Final Milestone
   
