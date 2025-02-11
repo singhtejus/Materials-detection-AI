@@ -1,4 +1,4 @@
-﻿# Materials detection model
+﻿# Materials detection model - Summer 2021
 For my project at BSE, I wanted to create an AI model which can identify various materials from an input image. While there are already models that can detect objects, I have not seen any that can detect the specific materials used on the object. The model can currently predict the following materials: paper, cardboard, glass, metal, wood, plastic, and skin. This has applications from better self-driving cars software, to helping the blind "see," in more vivid detail.
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
